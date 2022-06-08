@@ -74,3 +74,20 @@ func (f Formality) Valid(t TargetLangCode) bool {
 
 	return true
 }
+
+type TagHandling string
+
+const (
+	// default
+	Xml = "xml"
+
+	Html = "html"
+)
+
+func (t TagHandling) Valid() bool {
+	if t != Xml && t != Html {
+		return false
+	}
+
+	return true
+}

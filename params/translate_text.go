@@ -17,6 +17,8 @@ type TranslateTextParams struct {
 	SplitSentences     types.SplitSentences
 	PreserveFormatting types.PreserveFormatting
 	Formality          types.Formality
+	TagHandling        types.TagHandling
+	IgnoreTags         []string
 }
 
 func (p *TranslateTextParams) SetAuthnKey(k string) {
@@ -50,6 +52,14 @@ func (p *TranslateTextParams) Body() (*strings.Reader, error) {
 
 	if p.Formality.Valid(p.TargetLang) {
 		uv.Add("formality", string(p.Formality))
+	}
+
+	if p.TagHandling.Valid() {
+		uv.Add("tag_handling", string(p.TagHandling))
+	}
+
+	if p.IgnoreTags != nil {
+		uv.Add("ignore_tags", strings.Join(p.IgnoreTags[:], ","))
 	}
 
 	return strings.NewReader(uv.Encode()), nil
