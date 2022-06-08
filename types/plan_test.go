@@ -3,8 +3,8 @@ package types_test
 import (
 	"testing"
 
-	"github.com/michimani/deepl-sdk-go/types"
 	"github.com/stretchr/testify/assert"
+	"github.com/woodstock-tokyo/deepl-sdk-go/types"
 )
 
 func TestAPIPlanValid(t *testing.T) {

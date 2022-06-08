@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/michimani/deepl-sdk-go"
-	"github.com/michimani/deepl-sdk-go/types"
 	"github.com/stretchr/testify/assert"
+	"github.com/woodstock-tokyo/deepl-sdk-go"
+	"github.com/woodstock-tokyo/deepl-sdk-go/types"
 )
 
 func TestNewClient(t *testing.T) {

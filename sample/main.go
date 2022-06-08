@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/michimani/deepl-sdk-go"
-	"github.com/michimani/deepl-sdk-go/params"
-	"github.com/michimani/deepl-sdk-go/types"
+	"github.com/woodstock-tokyo/deepl-sdk-go"
+	"github.com/woodstock-tokyo/deepl-sdk-go/params"
+	"github.com/woodstock-tokyo/deepl-sdk-go/types"
 )
 
 func main() {

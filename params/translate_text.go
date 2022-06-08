@@ -5,7 +5,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/michimani/deepl-sdk-go/types"
+	"github.com/woodstock-tokyo/deepl-sdk-go/types"
 )
 
 // TranslateTextParams is parameters struct for TranslateText API

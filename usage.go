@@ -3,8 +3,8 @@ package deepl
 import (
 	"context"
 
-	"github.com/michimani/deepl-sdk-go/params"
-	"github.com/michimani/deepl-sdk-go/types"
+	"github.com/woodstock-tokyo/deepl-sdk-go/params"
+	"github.com/woodstock-tokyo/deepl-sdk-go/types"
 )
 
 // Usage calls the translate text API of the Deepl API.

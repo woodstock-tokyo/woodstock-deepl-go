@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/michimani/deepl-sdk-go/types"
+	"github.com/woodstock-tokyo/deepl-sdk-go/types"
 )
 
 type Client struct {
