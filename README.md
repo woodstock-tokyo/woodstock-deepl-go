@@ -6,7 +6,7 @@ This is an unofficial Go SDK for using the DeepL API.
 # Usage
 
 ```bash
-go get github.com/woodstock-tokyo/deepl-sdk-go
+go get github.com/woodstock-tokyo/woodstock-deepl-go
 ```
 
 # Sample
@@ -19,9 +19,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/woodstock-tokyo/deepl-sdk-go"
-	"github.com/woodstock-tokyo/deepl-sdk-go/params"
-	"github.com/woodstock-tokyo/deepl-sdk-go/types"
+	"github.com/woodstock-tokyo/woodstock-deepl-go"
+	"github.com/woodstock-tokyo/woodstock-deepl-go/params"
+	"github.com/woodstock-tokyo/woodstock-deepl-go/types"
 )
 
 func main() {

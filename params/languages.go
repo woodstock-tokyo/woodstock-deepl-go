@@ -4,7 +4,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/woodstock-tokyo/deepl-sdk-go/types"
+	"github.com/woodstock-tokyo/woodstock-deepl-go/types"
 )
 
 // LanguagesParams is parameters struct for Languages API.

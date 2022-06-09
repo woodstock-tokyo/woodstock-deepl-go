@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/woodstock-tokyo/deepl-sdk-go/params"
+	"github.com/woodstock-tokyo/woodstock-deepl-go/params"
 )
 
 func TestUsageSetAuthnKey(t *testing.T) {

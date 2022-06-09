@@ -5,8 +5,8 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/woodstock-tokyo/deepl-sdk-go/params"
-	"github.com/woodstock-tokyo/deepl-sdk-go/types"
+	"github.com/woodstock-tokyo/woodstock-deepl-go/params"
+	"github.com/woodstock-tokyo/woodstock-deepl-go/types"
 )
 
 func TestTranslateTextSetAuthnKey(t *testing.T) {

@@ -1,4 +1,4 @@
-module github.com/woodstock-tokyo/deepl-sdk-go
+module github.com/woodstock-tokyo/woodstock-deepl-go
 
 go 1.17
 
