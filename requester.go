@@ -23,7 +23,7 @@ func NewRequester(e string, p types.RequestParams) *Requester {
 	}
 }
 
-func (r *Requester) Exec(res interface{}) (*types.ErrorResponse, error) {
+func (r *Requester) Exec(res any) (*types.ErrorResponse, error) {
 	if err := r.prepare(); err != nil {
 		return nil, err
 	}

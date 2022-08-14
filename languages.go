@@ -23,7 +23,7 @@ func (c *Client) SourceLanguages(ctx context.Context) (*types.SourceLanguagesRes
 	return &res, errRes, err
 }
 
-func languages(ctx context.Context, c *Client, params *params.LanguagesParams, res interface{}) (*types.ErrorResponse, error) {
+func languages(ctx context.Context, c *Client, params *params.LanguagesParams, res any) (*types.ErrorResponse, error) {
 	endpoint := c.EndpointBase + types.EndpointLanguages
 	params.SetAuthnKey(c.AuthenticationKey)
 	requester := NewRequester(endpoint, params)

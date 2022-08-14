@@ -55,7 +55,7 @@ type RawResponse struct {
 	Body       []byte
 }
 
-func (r *RawResponse) Unmarshal(i interface{}) (*ErrorResponse, error) {
+func (r *RawResponse) Unmarshal(i any) (*ErrorResponse, error) {
 	var err error
 	if r.StatusCode != http.StatusOK {
 		var errRes ErrorResponse
