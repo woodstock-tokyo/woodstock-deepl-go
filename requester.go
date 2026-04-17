@@ -59,6 +59,11 @@ func (r *Requester) post() (*types.RawResponse, error) {
 	}
 
 	req.Header.Set("Content-Type", contentType)
+	for key, values := range r.Params.Headers() {
+		for _, value := range values {
+			req.Header.Add(key, value)
+		}
+	}
 	client := new(http.Client)
 	resp, err := client.Do(req)
 

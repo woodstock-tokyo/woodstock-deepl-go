@@ -64,12 +64,8 @@ func TestNewClient(t *testing.T) {
 
 	for _, c := range cases {
 		t.Run(c.name, func(tt *testing.T) {
-			if c.authnKey != "" {
-				tt.Setenv("DEEPL_API_AUTHN_KEY", c.authnKey)
-			}
-			if c.planName != "" {
-				tt.Setenv("DEEPL_API_PLAN", c.planName)
-			}
+			tt.Setenv("DEEPL_API_AUTHN_KEY", c.authnKey)
+			tt.Setenv("DEEPL_API_PLAN", c.planName)
 
 			client, err := deepl.NewClient()
 

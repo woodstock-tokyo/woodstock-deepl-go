@@ -16,6 +16,13 @@ func TestUsageSetAuthnKey(t *testing.T) {
 	assert.Equal(t, k, p.AuthKey)
 }
 
+func TestUsageHeaders(t *testing.T) {
+	p := params.UsageParams{}
+	p.SetAuthnKey("test-authn-key")
+
+	assert.Equal(t, "DeepL-Auth-Key test-authn-key", p.Headers().Get("Authorization"))
+}
+
 func TestUsageBody(t *testing.T) {
 	cases := []struct {
 		name   string
@@ -25,17 +32,17 @@ func TestUsageBody(t *testing.T) {
 		{
 			name:   "normal",
 			params: params.UsageParams{AuthKey: "test-authn-key"},
-			expect: "auth_key=test-authn-key",
+			expect: "",
 		},
 		{
 			name:   "normal: with white space",
 			params: params.UsageParams{AuthKey: "test key"},
-			expect: "auth_key=test+key",
+			expect: "",
 		},
 		{
 			name:   "normal: empty",
 			params: params.UsageParams{},
-			expect: "auth_key=",
+			expect: "",
 		},
 	}
 

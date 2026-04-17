@@ -19,7 +19,7 @@ const (
 
 var errorCodeMap map[DeeplAPIErrorCode]string = map[DeeplAPIErrorCode]string{
 	DeeplAPIError400: "Bad request. Please check error message and your parameters.",
-	DeeplAPIError403: "Authorization failed. Please supply a valid auth_key parameter.",
+	DeeplAPIError403: "Authorization failed. Please supply a valid Authorization header.",
 	DeeplAPIError404: "The requested resource could not be found.",
 	DeeplAPIError413: "The request size exceeds the limit.",
 	DeeplAPIError414: "The request URL is too long. You can avoid this error by using a POST request instead of a GET request.",

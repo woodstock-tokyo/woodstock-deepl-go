@@ -18,6 +18,13 @@ func TestLanguagesSetAuthnKey(t *testing.T) {
 	assert.Equal(t, k, p.AuthKey)
 }
 
+func TestLanguagesHeaders(t *testing.T) {
+	p := params.LanguagesParams{}
+	p.SetAuthnKey("test-authn-key")
+
+	assert.Equal(t, "DeepL-Auth-Key test-authn-key", p.Headers().Get("Authorization"))
+}
+
 func TestLanguagesBody(t *testing.T) {
 	cases := []struct {
 		name   string
@@ -27,22 +34,22 @@ func TestLanguagesBody(t *testing.T) {
 		{
 			name:   "normal: langType=source",
 			params: params.LanguagesParams{AuthKey: "test-authn-key", LangType: types.LangTypeSource},
-			expect: "auth_key=test-authn-key&type=source",
+			expect: "type=source",
 		},
 		{
 			name:   "normal: langType=target",
 			params: params.LanguagesParams{AuthKey: "test-authn-key", LangType: types.LangTypeTarget},
-			expect: "auth_key=test-authn-key&type=target",
+			expect: "type=target",
 		},
 		{
 			name:   "normal: with white space",
 			params: params.LanguagesParams{AuthKey: "test key", LangType: types.LangTypeSource},
-			expect: "auth_key=test+key&type=source",
+			expect: "type=source",
 		},
 		{
 			name:   "normal: empty",
 			params: params.LanguagesParams{},
-			expect: "auth_key=&type=",
+			expect: "type=",
 		},
 	}
 

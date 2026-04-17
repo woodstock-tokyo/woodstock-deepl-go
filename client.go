@@ -15,9 +15,10 @@ type Client struct {
 }
 
 // NewClient returns new DeepL API client. Authentication key and API plan are setted by env.
-//   Authentication key: DEEPL_API_AUTHN_KEY
-//   API plan: DEEPL_API_PLAN
-//             `free` or `pro` (ignore upper case or lower case)
+//
+//	Authentication key: DEEPL_API_AUTHN_KEY
+//	API plan: DEEPL_API_PLAN
+//	          `free` or `pro` (ignore upper case or lower case)
 func NewClient() (*Client, error) {
 	var c Client
 
@@ -34,9 +35,10 @@ func NewClient() (*Client, error) {
 	}
 	c.APIPlanType = plan
 
-	if plan == types.APIPlanFree {
+	switch plan {
+	case types.APIPlanFree:
 		c.EndpointBase = fmt.Sprintf("https://%s/%s/", types.DomainFree, types.APIVersion)
-	} else if plan == types.APIPlanPro {
+	case types.APIPlanPro:
 		c.EndpointBase = fmt.Sprintf("https://%s/%s/", types.DomainPro, types.APIVersion)
 	}
 

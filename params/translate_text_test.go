@@ -18,6 +18,13 @@ func TestTranslateTextSetAuthnKey(t *testing.T) {
 	assert.Equal(t, k, p.AuthKey)
 }
 
+func TestTranslateTextHeaders(t *testing.T) {
+	p := params.TranslateTextParams{}
+	p.SetAuthnKey("test-authn-key")
+
+	assert.Equal(t, "DeepL-Auth-Key test-authn-key", p.Headers().Get("Authorization"))
+}
+
 func TestTranslateTextBody(t *testing.T) {
 	cases := []struct {
 		name   string
@@ -37,7 +44,7 @@ func TestTranslateTextBody(t *testing.T) {
 				TagHandling:        types.Xml,
 				IgnoreTags:         []string{"x", "y"},
 			},
-			expect: "auth_key=test-authn-key&formality=more&ignore_tags=x%2Cy&preserve_formatting=0&source_lang=EN&split_sentences=0&tag_handling=xml&target_lang=RU&text=text1&text=text2",
+			expect: "formality=more&ignore_tags=x%2Cy&preserve_formatting=0&source_lang=EN&split_sentences=0&tag_handling=xml&target_lang=RU&text=text1&text=text2",
 		},
 		{
 			name: "normal: all with white space",
@@ -52,7 +59,7 @@ func TestTranslateTextBody(t *testing.T) {
 				TagHandling:        types.Xml,
 				IgnoreTags:         []string{"x", "y"},
 			},
-			expect: "auth_key=test+key&formality=more&ignore_tags=x%2Cy&preserve_formatting=1&source_lang=EN&split_sentences=1&tag_handling=xml&target_lang=RU&text=text+1&text=text+2",
+			expect: "formality=more&ignore_tags=x%2Cy&preserve_formatting=1&source_lang=EN&split_sentences=1&tag_handling=xml&target_lang=RU&text=text+1&text=text+2",
 		},
 		{
 			name: "normal: all with invalid value",
@@ -66,7 +73,7 @@ func TestTranslateTextBody(t *testing.T) {
 				Formality:          "invalid value",
 				TagHandling:        "invalid value",
 			},
-			expect: "auth_key=test+key&source_lang=EN&target_lang=RU&text=text+1&text=text+2",
+			expect: "source_lang=EN&target_lang=RU&text=text+1&text=text+2",
 		},
 		{
 			name: "normal: all ignore formality option",
@@ -81,12 +88,12 @@ func TestTranslateTextBody(t *testing.T) {
 				TagHandling:        types.Xml,
 				IgnoreTags:         []string{"x", "y"},
 			},
-			expect: "auth_key=test-authn-key&ignore_tags=x%2Cy&preserve_formatting=0&source_lang=EN&split_sentences=0&tag_handling=xml&target_lang=JA&text=text1&text=text2",
+			expect: "ignore_tags=x%2Cy&preserve_formatting=0&source_lang=EN&split_sentences=0&tag_handling=xml&target_lang=JA&text=text1&text=text2",
 		},
 		{
 			name:   "normal: empty",
 			params: params.TranslateTextParams{},
-			expect: "auth_key=&target_lang=",
+			expect: "target_lang=",
 		},
 	}
 

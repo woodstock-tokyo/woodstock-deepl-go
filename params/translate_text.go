@@ -2,6 +2,7 @@ package params
 
 import (
 	"errors"
+	"net/http"
 	"net/url"
 	"strings"
 
@@ -25,6 +26,14 @@ func (p *TranslateTextParams) SetAuthnKey(k string) {
 	p.AuthKey = k
 }
 
+func (p *TranslateTextParams) Headers() http.Header {
+	header := make(http.Header)
+	if p.AuthKey != "" {
+		header.Set("Authorization", "DeepL-Auth-Key "+p.AuthKey)
+	}
+	return header
+}
+
 func (p *TranslateTextParams) Body() (*strings.Reader, error) {
 	if !p.IsValid() {
 		return nil, errors.New("invalid params")
@@ -32,7 +41,6 @@ func (p *TranslateTextParams) Body() (*strings.Reader, error) {
 
 	uv := url.Values{}
 
-	uv.Add("auth_key", p.AuthKey)
 	for _, t := range p.Text {
 		uv.Add("text", t)
 	}

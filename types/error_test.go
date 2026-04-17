@@ -20,7 +20,7 @@ func TestDescription(t *testing.T) {
 		{
 			name:      "403",
 			errorCode: DeeplAPIError403,
-			expect:    "Authorization failed. Please supply a valid auth_key parameter.",
+			expect:    "Authorization failed. Please supply a valid Authorization header.",
 		},
 		{
 			name:      "404",
